@@ -8,7 +8,9 @@ on:
 jobs:
   deploy-codigofacilito:
     runs-on: ubuntu-latest # Define el sistema operativo en el que se ejecutará el job
-    step: # Define los pasos que se ejecutarán en el job
+    steps: # Define los pasos que se ejecutarán en el job
+    - name: Checkout code
+      uses: actions/checkout@v2 # Clona el repositorio en el runner
       run: echo "se realiza pull del código"  # Paso 1: Clonar el repositorio
       run: echo "correr migraciones"
       run: echo "publicar versión"
