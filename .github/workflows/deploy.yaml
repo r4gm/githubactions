@@ -9,10 +9,13 @@ jobs:
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo"
+        run: cat /etc/os-release
   
   second_jobs:
+    needs: first_jobs # This job depends on the first job
     runs-on: macOS-latest
 
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo"
+        run: sw_vers
