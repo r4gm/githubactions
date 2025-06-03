@@ -8,8 +8,9 @@ jobs:
 
     steps:
       - name: Hola Mundo
-      - run: echo "Hola Mundo"
-      - run: cat /etc/os-release
+        run: echo "Hola Mundo"
+      - name: Información del sistema
+        run: cat /etc/os-release
   
   second_jobs:
     needs: first_jobs # This job depends on the first job
@@ -17,5 +18,6 @@ jobs:
 
     steps:
       - name: Hola Mundo
-      - run: echo "Hola Mundo"
-      - run: sw_vers
+        run: echo "Hola Mundo"
+      - name: Información del sistema
+        run: sw_vers
