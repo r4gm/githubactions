@@ -13,7 +13,8 @@ jobs:
         run: cat /etc/os-release
   
   second_jobs:
-    needs: first_jobs # This job depends on the first job
+    # needs: first_jobs # This job depends on the first job
+    if: ${{github.ref == 'refs/heads/main'}} # Only run on main branch, los if se pueden definir también en los steps
     runs-on: macOS-latest
 
     steps:
