@@ -11,9 +11,11 @@ jobs:
         run: echo "Hola Mundo"
       - name: Información del sistema
         run: cat /etc/os-release
+      - name: ver rama acual
+        run: echo "La rama actual es ${{ github.ref }}"
   
   second_jobs:
-    # needs: first_jobs # This job depends on the first job
+    needs: first_jobs # This job depends on the first job
     if: ${{github.ref == 'refs/heads/main'}} # Only run on main branch, los if se pueden definir también en los steps
     runs-on: macOS-latest
 
