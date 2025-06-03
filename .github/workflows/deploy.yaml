@@ -1,15 +1,11 @@
-name: "Deploy Codigo Facilito"
+name: Deploy to Production
 
-on:
-  push:
-    branches:
-      - main
+onn: push
 
 jobs:
-  deploy-codigofacilito:
-    runs-on: ubuntu-latest # Define el sistema operativo en el que se ejecutará el job
-    steps: # Define los pasos que se ejecutarán en el job
-      - uses: actions/checkout@v4 # Clona el repositorio en el runner
-      - run: echo "se realiza pull del código"  # Paso 1: Clonar el repositorio
-      - run: echo "correr migraciones"
-      - run: echo "publicar versión"
+  first_jobs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hola Mundo
+        run: echo "Hola Mundo"
