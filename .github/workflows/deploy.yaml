@@ -38,8 +38,6 @@ jobs:
 
     env: 
       OS_ENV: "macOS"
-
-    env:
       my_variable: ${{ needs.first_jobs.outputs.my_variable }} # Accessing output variable from the first job
 
     steps:
