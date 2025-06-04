@@ -58,3 +58,17 @@ jobs:
         with:
           name: test-artifact
           path: test.log
+
+  third_jobs:
+    runs-on: ubuntu-latest
+    needs: second_jobs # This job depends on the second job
+
+    steps:
+      - name: Descargar el artefacto
+        uses: actions/download-artifact@v4
+        with:
+          name: test-artifact
+
+      - name: cat file
+        run: cat test.log
+      
