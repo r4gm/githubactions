@@ -48,7 +48,7 @@ jobs:
       - name: la variable compartida es
         run: echo "La variable compartida es ${my_variable}"
 
-      #add artifact
+      #add artifact para subir un archivo de texto
       - name: Crear un archivo de texto
         run: |
           echo "Este es un archivo de texto creado por GitHub Actions" > test.log
