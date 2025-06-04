@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Hola Mundo
-        run: echo "Hola ${MY_NAME}, bienvenido a GitHub Actions"
+        run: echo "Hola $MY_NAME, bienvenido a GitHub Actions"
       - name: Información del sistema
         run: cat /etc/os-release
       - name: ver rama acual
