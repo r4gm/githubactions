@@ -8,10 +8,11 @@ env:
 jobs:
   first_jobs:
     runs-on: ubuntu-latest
-
+    env: 
+      OS_ENV: "Linux"
     steps:
       - name: Hola Mundo
-        run: echo "Hola $MY_NAME, bienvenido a GitHub Actions"
+        run: echo "Hola ${MY_NAME}, bienvenido a GitHub Actions, Estás en el segundo job en ${OS_ENV}"
       - name: Información del sistema
         run: cat /etc/os-release
       - name: ver rama acual
@@ -22,8 +23,10 @@ jobs:
     if: ${{github.ref == 'refs/heads/main'}} # Only run on main branch, los if se pueden definir también en los steps
     runs-on: macOS-latest
 
+    env: 
+      OS_ENV: "macOS"
     steps:
       - name: Hola Mundo
-        run: echo "Hola Mundo"
+        run: echo "Hola Mundo ${MY_NAME}, Estás en el segundo job en ${OS_ENV}"
       - name: Información del sistema
         run: sw_vers
