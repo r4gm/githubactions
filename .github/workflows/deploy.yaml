@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4 # This step checks out the repository so that the workflow can access its contents
       - name: Variable de entorno
         id: step_1
-        run: echo "my_variable=Hola" >> $GITHUB_OUTPPUT
+        run: echo "my_variable=Hola" >> $GITHUB_OUTPUT
       - name: salida de variable de entorno
         run: echo "La variable de entorno es ${{ steps.step_1.outputs.my_variable }}"
     
