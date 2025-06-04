@@ -2,12 +2,12 @@ name: Deploy to Production
 
 on: push
 
+env:
+  MY_NAME: "Rafael"
+
 jobs:
   first_jobs:
     runs-on: ubuntu-latest
-
-    env:
-      MY_NAME: "Rafael"
 
     steps:
       - name: Hola Mundo
