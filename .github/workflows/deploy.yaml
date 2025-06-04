@@ -6,17 +6,22 @@ env:
   MY_NAME: "Rafael"
 
 jobs:
-  first_jobs:
+  first_jobs: # Identifier for the first job
+    name: Mi primer job # Name of the job que se verá refleajado en la interfaz de GitHub
     runs-on: ubuntu-latest
     env: 
       OS_ENV: "Linux"
     steps:
       - name: Hola Mundo
-        run: echo "Hola ${MY_NAME}, bienvenido a GitHub Actions, Estás en el segundo job en ${OS_ENV}"
+        run: echo "Hola ${MY_NAME}, bienvenido a GitHub Actions, Estás en el primer job en ${OS_ENV}"
       - name: Información del sistema
         run: cat /etc/os-release
       - name: ver rama acual
         run: echo "La rama actual es ${{ github.ref }}"
+      - name: ver directorio actual
+        run: ls -la
+      - name: Actions
+        usee: actions/checkout@v4 # This step checks out the repository so that the workflow can access its contents
   
   second_jobs:
     needs: first_jobs # This job depends on the first job
