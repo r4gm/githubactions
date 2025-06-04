@@ -8,6 +8,7 @@ env:
 jobs:
   first_jobs: # Identifier for the first job
     name: Mi primer job # Name of the job que se verá refleajado en la interfaz de GitHub
+    id: step_1
     runs-on: ubuntu-latest
     env: 
       OS_ENV: "Linux"
@@ -22,6 +23,11 @@ jobs:
         run: ls -la
       - name: Actions
         uses: actions/checkout@v4 # This step checks out the repository so that the workflow can access its contents
+      - name: Variable de entorno
+        run: echo "my_variable=Hola" >> $GITHUB_OUTPPUT
+      - name: salida de variable de entorno
+        run: echo "La variable de entorno es ${{ steps.step_1.outputs.my_variable }}"
+        
   
   second_jobs:
     needs: first_jobs # This job depends on the first job
@@ -35,3 +41,5 @@ jobs:
         run: echo "Hola Mundo ${MY_NAME}, Estás en el segundo job en ${OS_ENV}"
       - name: Información del sistema
         run: sw_vers
+      - name: salida de variable de entorno
+        run: echo "La variable de entorno es ${{ steps.step_1.outputs.my_variable }}"
