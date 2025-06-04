@@ -8,7 +8,6 @@ env:
 jobs:
   first_jobs: # Identifier for the first job
     name: Mi primer job # Name of the job que se verá refleajado en la interfaz de GitHub
-    id: step_1
     runs-on: ubuntu-latest
     env: 
       OS_ENV: "Linux"
