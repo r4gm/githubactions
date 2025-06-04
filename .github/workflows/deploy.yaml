@@ -27,8 +27,10 @@ jobs:
         run: echo "my_variable=Hola" >> $GITHUB_OUTPPUT
       - name: salida de variable de entorno
         run: echo "La variable de entorno es ${{ steps.step_1.outputs.my_variable }}"
+    
+    outputs:
+      my_variable: ${{ steps.step_1.outputs.my_variable }} # Output variable from the first job
         
-  
   second_jobs:
     needs: first_jobs # This job depends on the first job
     if: ${{github.ref == 'refs/heads/main'}} # Only run on main branch, los if se pueden definir también en los steps
@@ -36,10 +38,14 @@ jobs:
 
     env: 
       OS_ENV: "macOS"
+
+    env:
+      my_variable: ${{ needs.first_jobs.outputs.my_variable }} # Accessing output variable from the first job
+
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo ${MY_NAME}, Estás en el segundo job en ${OS_ENV}"
       - name: Información del sistema
         run: sw_vers
-      - name: salida de variable de entorno
-        run: echo "La variable de entorno es ${{ steps.step_1.outputs.my_variable }}"
+      - name: la variable compartida es
+        run: echo "La variable compartida es ${my_variable}"
