@@ -21,7 +21,7 @@ jobs:
       - name: ver directorio actual
         run: ls -la
       - name: Actions
-        usee: actions/checkout@v4 # This step checks out the repository so that the workflow can access its contents
+        uses: actions/checkout@v4 # This step checks out the repository so that the workflow can access its contents
   
   second_jobs:
     needs: first_jobs # This job depends on the first job
